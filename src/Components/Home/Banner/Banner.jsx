@@ -13,26 +13,26 @@ import slid6 from '../../../assets/home/06.png'
 const Banner = () => {
     return (
         <div>
-            <Carousel centerMode={true} showArrows={true} autoPlay={true} emulateTouch={true} infiniteLoop={true} >
-                <div>
-                    <img src={slid1} />
+            <Carousel className="w-full" centerMode={true} showArrows={true} autoPlay={true} emulateTouch={true} infiniteLoop={true} >
+                <div className="w-full" >
+                    <img className="w-full" src={slid1} />
                 </div>
-                <div>
-                <img src={slid2} />
+                <div className="w-full">
+                <img className="w-full" src={slid2} />
                 </div>
-                <div>
-                <img src={slid3} />
+                <div className="w-full">
+                <img className="w-full" src={slid3} />
                 </div>
-                <div>
-                <img src={slid4} />
+                <div className="w-full">
+                <img className="w-full" src={slid4} />
                     
                 </div>
-                <div>
-                <img src={slid5} />
+                <div className="w-full">
+                <img className="w-full" src={slid5} />
                     
                 </div>
-                <div>
-                <img src={slid6} />
+                <div className="w-full">
+                <img className="w-full" src={slid6} />
                     
                 </div>
                

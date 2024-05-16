@@ -1,19 +1,18 @@
 import PropTypes from 'prop-types';
 
 const ManuCard = ({data}) => {
-    console.log(typeof data);
-    const {image,name,price,recipe}=data;
+  
     return (
         <div className=' flex gap-4 text-gray-500'>
             <div className='w-28 h-20 rounded-tr-full'>
                 <img className='w-full h-full rounded-r-[40px] rounded-bl-[40px] '
-                 src={image} alt="" />
+                 src={data?.image} alt="" />
             </div>
             <div>
-                <h1 className=' text-xl font-semibold mb-3'>{name} ---------</h1>
-                <p >{recipe}</p>
+                <h1 className=' text-xl font-semibold mb-3'>{data?.name} ---------</h1>
+                <p >{data?.recipe}</p>
             </div>
-            <p className='text-yellow-700 text-lg font-semibold'>${price}</p>
+            <p className='text-yellow-700 text-lg font-semibold'>${data?.price}</p>
             
         </div>
     );

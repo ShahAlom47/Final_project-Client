@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SectionHeading from "../../SharedComponent/SectionHeading";
-import ManuCard from "./ManuCard";
+import ManuCard from "../../SharedComponent/MenuCaard/ManuCard";
 
 
 const OurMenu = () => {

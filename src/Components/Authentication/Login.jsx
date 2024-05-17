@@ -1,11 +1,43 @@
 
 
+import { useState } from 'react';
 import bg from '../../assets/others/authentication.png'
 import img from '../../assets/others/authentication2.png'
 import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
 
 
+
 const Login = () => {
+    const [capError, setCapError] = useState('')
+    const genaretCaptcha = () => {
+
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+        let result = ''
+        for (let index = 0; index < 6; index++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length))
+
+        }
+        return result
+    }
+    const [capText, setCapText] = useState(genaretCaptcha())
+
+
+    const formHandel = (e) => {
+        setCapError('')
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const email = form.email.value
+        const captcha = form.cap.value
+
+        if (capText !== captcha) {
+            setCapError('Captcha not matched')
+            return
+        }
+
+    }
+
+
     return (
         <div className='bg-cover bg-center min-h-screen p-16' style={{ backgroundImage: `url(${bg})` }}>
             <div className='border-4 shadow-xl shadow-black flex'>
@@ -15,31 +47,32 @@ const Login = () => {
                 <div className=' flex-1'>
                     <div className='w-8/12 py-8'>
                         <h1 className='text-3xl font-bold text-center'>LogIn</h1>
-                        <form >
+                        <form onSubmit={formHandel} >
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold text-gray-500">Name</span>
                                 </label>
-                                <input type="text" placeholder="Name" className="input input-bordered" required />
+                                <input type="text" name='name' placeholder="Name" className="input input-bordered" required />
                             </div>
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold text-gray-500">Email</span>
                                 </label>
-                                <input type="Email" placeholder="Email" className="input input-bordered" required />
+                                <input type="email" name='email' placeholder="Email" className="input input-bordered" required />
                             </div>
 
                             <div className="form-control">
-                                <p className="input input-bordered mt-7"></p>
+                                <p className="input input-bordered mt-7">{capText}</p>
                             </div>
-                            <button className='btn btn-link'>Reload Captcha</button>
+                            <button onClick={(e) => { e.preventDefault(); setCapText(genaretCaptcha()) }} className='btn btn-link flex items-center'>Reload Captcha</button>
 
                             <div className="form-control">
-                               
-                                <input type="text" placeholder="Type here" className="input input-bordered"  required />
+
+                                <input type="text" name='cap' placeholder="Type here" className="input input-bordered" required />
+                                <p className='text-red-600'>{capError}</p>
                             </div>
-                            <input className="input bg-[#ae903d] w-full mt-8 text-white font-bold "  type="submit" value="SIGN IN" />
+                            <input className="input bg-[#ae903d] w-full mt-8 text-white font-bold " type="submit" value="SIGN IN" />
                         </form>
 
                         <div>
@@ -58,8 +91,8 @@ const Login = () => {
                 </div>
 
             </div>
-
         </div>
+
     );
 };
 

@@ -6,6 +6,8 @@ import Home from "../Home/Home";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import OurMenuPage from "../OurMenuPage/OurMenuPage";
 import OrderPage from "../OrderPage/OrderPage";
+import ContactUs from "../ContactUs/ContactUs";
+import Login from "../Authentication/Login";
 
   const router = createBrowserRouter([
     {
@@ -25,6 +27,18 @@ import OrderPage from "../OrderPage/OrderPage";
         {
             path: "/order/:catName",
             element:<OrderPage></OrderPage>,
+        },
+        {
+            path: "/contact",
+            element:<ContactUs></ContactUs>,
+        },
+        {
+            path: "/signIn",
+            element:<Login></Login>,
+        },
+        {
+            path: "/signUp",
+            element:<Login></Login>,
         },
       ]
     },

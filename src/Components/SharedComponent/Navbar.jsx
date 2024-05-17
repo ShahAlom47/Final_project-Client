@@ -33,7 +33,7 @@ const Navbar = () => {
      <Link to={'/our-menu'}><li><a>Our Menu</a></li></Link>
      <Link to={'/order/pizza'}><li><a>Order</a></li></Link>
      <Link><li><a>DashBoard</a></li></Link>
-     <Link><li><a>Contact Us</a></li></Link>
+     <Link to={'contact'}><li><a>Contact Us</a></li></Link>
      
     </>
     return (
@@ -54,7 +54,9 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
           {nav}
           </ul>
-          <a className="btn">Button</a>
+        <Link to={'/signIn'}><button className="btn btn-ghost hover:underline">SIGN IN</button></Link>
+        <Link to={'/sighUp'}><button className="btn btn-ghost hover:underline">SIGN UP</button></Link>
+        <Link><button className="btn btn-ghost hover:underline">SIGN OUT</button></Link>
         </div>
         
       </div>

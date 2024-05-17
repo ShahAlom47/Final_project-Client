@@ -30,9 +30,9 @@ const Navbar = () => {
 
     const nav=<>
      <Link><li><a>Home</a></li></Link>
-     <Link><li><a>DashBoard</a></li></Link>
      <Link to={'/our-menu'}><li><a>Our Menu</a></li></Link>
-     <Link><li><a>Our Shop</a></li></Link>
+     <Link to={'/order/pizza'}><li><a>Order</a></li></Link>
+     <Link><li><a>DashBoard</a></li></Link>
      <Link><li><a>Contact Us</a></li></Link>
      
     </>

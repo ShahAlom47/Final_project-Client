@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionHeading from "../../SharedComponent/SectionHeading";
 import ManuCard from "../../SharedComponent/MenuCaard/ManuCard";
+import { Link } from "react-router-dom";
 
 
 const OurMenu = () => {
@@ -13,7 +14,7 @@ const OurMenu = () => {
                 setMenu(popular)
             })
     }, [])
-    console.log(menu);
+
     return (
         <div>
             <SectionHeading h1={'FROM OUR MENU'} p={'---Check it out---'} ></SectionHeading>
@@ -23,7 +24,7 @@ const OurMenu = () => {
                 }
             </div>
             <div className="flex justify-center mb-10">
-                <button className=" mx-auto  bg-transparent rounded-xl p-3 text-xl hover:bg-slate-300 border-b-4 border-black">View Full Menu</button>
+               <Link to={'/our-menu'}> <button className=" mx-auto  bg-transparent rounded-xl p-3 text-xl hover:bg-slate-300 border-b-4 border-black">View Full Menu</button></Link>
             </div>
 
         </div>

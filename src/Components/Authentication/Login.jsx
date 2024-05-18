@@ -1,14 +1,18 @@
 
 
-import { useState } from 'react';
+import {  useContext, useState } from 'react';
 import bg from '../../assets/others/authentication.png'
 import img from '../../assets/others/authentication2.png'
 import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
 
 const Login = () => {
     const [capError, setCapError] = useState('')
+   const {user}=useContext(AuthContext)
+    console.log(user);
+
     const genaretCaptcha = () => {
 
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -28,6 +32,7 @@ const Login = () => {
         const form = e.target
         const name = form.name.value
         const email = form.email.value
+        const password = form.password.value
         const captcha = form.cap.value
 
         if (capText !== captcha) {
@@ -60,6 +65,12 @@ const Login = () => {
                                     <span className="label-text font-semibold text-gray-500">Email</span>
                                 </label>
                                 <input type="email" name='email' placeholder="Email" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-semibold text-gray-500">Password</span>
+                                </label>
+                                <input type="text" name='password' placeholder="password" className="input input-bordered" required />
                             </div>
 
                             <div className="form-control">

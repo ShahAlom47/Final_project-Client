@@ -8,6 +8,7 @@ import OurMenuPage from "../OurMenuPage/OurMenuPage";
 import OrderPage from "../OrderPage/OrderPage";
 import ContactUs from "../ContactUs/ContactUs";
 import Login from "../Authentication/Login";
+import Register from "../Authentication/Register";
 
   const router = createBrowserRouter([
     {
@@ -38,7 +39,7 @@ import Login from "../Authentication/Login";
         },
         {
             path: "/signUp",
-            element:<Login></Login>,
+            element:<Register></Register>,
         },
       ]
     },

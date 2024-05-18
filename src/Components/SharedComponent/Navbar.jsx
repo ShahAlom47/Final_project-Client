@@ -55,7 +55,7 @@ const Navbar = () => {
           {nav}
           </ul>
         <Link to={'/signIn'}><button className="btn btn-ghost hover:underline">SIGN IN</button></Link>
-        <Link to={'/sighUp'}><button className="btn btn-ghost hover:underline">SIGN UP</button></Link>
+        <Link to={'/signUp'}><button className="btn btn-ghost hover:underline">SIGN UP</button></Link>
         <Link><button className="btn btn-ghost hover:underline">SIGN OUT</button></Link>
         </div>
         

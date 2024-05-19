@@ -9,6 +9,8 @@ import OrderPage from "../OrderPage/OrderPage";
 import ContactUs from "../ContactUs/ContactUs";
 import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
+import DashBoard from "../DashBoard/DashBoard";
+import PrivetRoute from "./PrivetRoute";
 
   const router = createBrowserRouter([
     {
@@ -40,6 +42,10 @@ import Register from "../Authentication/Register";
         {
             path: "/signUp",
             element:<Register></Register>,
+        },
+        {
+            path: "/dashBoard",
+            element:<PrivetRoute><DashBoard></DashBoard></PrivetRoute>,
         },
       ]
     },

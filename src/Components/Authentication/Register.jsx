@@ -11,23 +11,28 @@ import auth from "../../../firebase.config";
 
 
 const Register = () => {
-    const {registerUser}=useContext(AuthContext)
+    const { registerUser, user } = useContext(AuthContext)
+    console.log(user)
     const {
         register,
         handleSubmit,
-       
+        reset
+
     } = useForm()
 
-    const onSubmit = (data) =>{
+    const onSubmit = (data) => {
         // console.log(data);
-registerUser(data.email,data.password)
-.then(res=>{
-    updateProfile(auth.currentUser, {
-        displayName: data.name
-      }).then((res) => {
-       console.log(res);
-      })
-})
+        registerUser(data.email, data.password)
+            .then(res => {
+                updateProfile(auth.currentUser, {
+                    displayName: data.name
+                }).then((res) => {
+                    console.log(res);
+                    alert('user register success')
+                    reset();
+                })
+                .catch(e=>console.log(e))
+            })
 
 
 
@@ -44,7 +49,7 @@ registerUser(data.email,data.password)
                     <div className='w-8/12 py-8'>
                         <h1 className='text-3xl font-bold text-center'>Sign Up</h1>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="form-control">
+                            <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold text-gray-500">Name</span>
                                 </label>
@@ -64,7 +69,7 @@ registerUser(data.email,data.password)
                                 <input type="text" placeholder="Password"  {...register("password", { required: true })} className="input input-bordered" required />
                             </div>
 
-                  
+
                             <input className="input bg-[#ae903d] w-full mt-8 text-white font-bold " type="submit" value="SIGN UP" />
                         </form>
 

@@ -11,9 +11,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
    <AuthProvider>
    <ParallaxProvider>
-      <PrivetRoute>
+  
         <RouterProvider router={router} />
-      </PrivetRoute>
+    
     </ParallaxProvider>
    </AuthProvider>
 

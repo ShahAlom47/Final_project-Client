@@ -5,13 +5,16 @@ import bg from '../../assets/others/authentication.png'
 import img from '../../assets/others/authentication2.png'
 import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 
 const Login = () => {
     const [capError, setCapError] = useState('')
-   const {user}=useContext(AuthContext)
-    console.log(user);
+   const {logInUser}=useContext(AuthContext)
+   const location=useLocation()
+   const navigate=useNavigate()
+   
 
     const genaretCaptcha = () => {
 
@@ -39,6 +42,17 @@ const Login = () => {
             setCapError('Captcha not matched')
             return
         }
+        logInUser(email,password)
+        .then(() => {
+          alert('log In success')
+          form.reset()
+          navigate(location?.state)
+        }).catch((error) => {
+          console.log(error);
+        });
+  
+
+
 
     }
 
@@ -87,7 +101,7 @@ const Login = () => {
                         </form>
 
                         <div>
-                            <p className='text-[#ae903d] text-center m-4'>New here ? <button className='font-semibold'>Create a New Account</button></p>
+                            <p className='text-[#ae903d] text-center m-4'>New here ? <Link to={'/signUp'}><button className='font-semibold'>Create a New Account</button></Link></p>
                         </div>
                         <div>
                             <h1 className='text-center font-semibold'>Or sign in with</h1>

@@ -20,7 +20,7 @@ const Testimonials = () => {
                 setReviews(data)
             })
     }, [])
-    console.log(reviews);
+  
 
     return (
         <div>

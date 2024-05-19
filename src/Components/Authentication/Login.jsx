@@ -14,7 +14,7 @@ const Login = () => {
    const {logInUser}=useContext(AuthContext)
    const location=useLocation()
    const navigate=useNavigate()
-   
+   console.log(location)
 
     const genaretCaptcha = () => {
 
@@ -46,7 +46,10 @@ const Login = () => {
         .then(() => {
           alert('log In success')
           form.reset()
-          navigate(location?.state)
+         if(location.state){
+            navigate(location?.state)
+         }
+         navigate('/')
         }).catch((error) => {
           console.log(error);
         });

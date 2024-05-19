@@ -1,14 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { MdOutlineAddShoppingCart } from "react-icons/md";
 import cardImg from '../../assets/icon/soppingCard.png'
+import useGetCard from "../../CustomHocks/useGetCard";
 
 
 const Navbar = () => {
 
   const { user, logOutUser } = useContext(AuthContext);
   const [visible, setVisible] = useState(true)
+  const [data]=useGetCard()
+
+console.log(data);
+
+
 
 
 
@@ -70,11 +75,10 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
             {nav}
           </ul>
-          <button className="w-20 h-16 relative">
-          
+         <Link> <button className="w-20 h-16 relative "> 
           <img className="w-full h-full rounded-full" src={cardImg} alt="" />
-            <div className="bg-red-500 rounded-full p-1  absolute bottom-1 text-sm right-0">+99</div>
-          </button>
+            <div className="bg-red-500 rounded-full p-1 min-w-8  min-h-8 absolute bottom-1 text-sm right-1">{data?.length}</div>
+          </button></Link>
           {
             user ? <>
 

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const MenuCategory = ({category,headerBG,headerH1,headerP,}) => {
     const [menu]=useMenu();
     const Datas= menu.filter(data=>data.category===category)
-    console.log(menu);
+
    
      return (
          <div className=''>

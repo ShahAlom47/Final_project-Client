@@ -8,6 +8,7 @@ import FoodCard from "../SharedComponent/FoodCard/FoodCard";
 import { useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+import { useQuery } from "@tanstack/react-query";
 
 
 
@@ -34,6 +35,9 @@ useEffect(()=>{
     .then(data=>setCategoryData(data.data))
 
 },[axiosSecure,category,catName])
+
+
+
 
 
 const page = Math.ceil(categoryData.length/6)
@@ -71,7 +75,7 @@ const handelNext=()=>{
 
 }
   
-   console.log(pageNo);
+ 
    
 
 
@@ -91,7 +95,7 @@ const handelNext=()=>{
                 </div>
                 <div className=" grid lg:grid-cols-3 md:grid-cols-2 gap-6">
                    {
-                    currentItems.map((data)=><FoodCard data={data} key={data._id}></FoodCard> )
+                    currentItems.map((data)=><FoodCard datas={data} key={data._id}></FoodCard> )
                    }
 
                 </div>

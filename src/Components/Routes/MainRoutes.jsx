@@ -11,6 +11,9 @@ import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import DashBoard from "../DashBoard/DashBoard";
 import PrivetRoute from "./PrivetRoute";
+import AdminHome from "../DashBoard/AdminHome/AdminHome";
+import AllUsers from "../DashBoard/AllUsers/AllUsers";
+import MyCart from "../DashBoard/MyCart/MyCart";
 
   const router = createBrowserRouter([
     {
@@ -49,6 +52,27 @@ import PrivetRoute from "./PrivetRoute";
         },
       ]
     },
+    {
+      path: "/dashBoard",
+      element:<DashBoard></DashBoard>,
+      errorElement: <ErrorPage />,
+      children:[
+        {
+          path: "/dashBoard",
+          element:<AdminHome></AdminHome>,
+        },
+        {
+          path: "/dashBoard/allUsers",
+          element:<AllUsers></AllUsers>,
+        },
+        {
+          path: "/dashBoard/myCart",
+          element:<MyCart></MyCart>,
+        },
+      ]
+
+    },
+    
   ]);
 
   export default router

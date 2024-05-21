@@ -1,9 +1,9 @@
 
 
-import {  useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import bg from '../../assets/others/authentication.png'
 import img from '../../assets/others/authentication2.png'
-import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -11,10 +11,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [capError, setCapError] = useState('')
-   const {logInUser}=useContext(AuthContext)
-   const location=useLocation()
-   const navigate=useNavigate()
-   console.log(location)
+    const { logInUser } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const [viewPass, setPassView] = useState(false)
 
     const genaretCaptcha = () => {
 
@@ -42,18 +42,18 @@ const Login = () => {
             setCapError('Captcha not matched')
             return
         }
-        logInUser(email,password)
-        .then(() => {
-          alert('log In success')
-          form.reset()
-         if(location.state){
-            navigate(location?.state)
-         }
-         navigate('/')
-        }).catch((error) => {
-          console.log(error);
-        });
-  
+        logInUser(email, password)
+            .then(() => {
+                alert('log In success')
+                form.reset()
+                if (location.state) {
+                    navigate(location?.state)
+                }
+                navigate('/')
+            }).catch((error) => {
+                console.log(error);
+            });
+
 
 
 
@@ -87,7 +87,10 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text font-semibold text-gray-500">Password</span>
                                 </label>
-                                <input type="text" name='password' placeholder="password" className="input input-bordered" required />
+                                <div className='input input-bordered flex items-center justify-between'>
+                                    <input type={viewPass ? 'text' : 'password'} name='password' placeholder="password" className=" " required />
+                                    <p onClick={() => setPassView(!viewPass)} className="">{viewPass ? <FaEyeSlash /> : <FaEye />}</p>
+                                </div>
                             </div>
 
                             <div className="form-control">

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { useContext, useState } from 'react';
 import bg from '../../assets/others/authentication.png'
 import img from '../../assets/others/authentication2.png'
-import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
@@ -12,6 +12,7 @@ import auth from "../../../firebase.config";
 
 const Register = () => {
     const { registerUser, user } = useContext(AuthContext)
+    const [viewPass, setPassView] = useState(false)
     console.log(user)
     const {
         register,
@@ -66,7 +67,11 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text font-semibold text-gray-500">Password</span>
                                 </label>
-                                <input type="text" placeholder="Password"  {...register("password", { required: true })} className="input input-bordered" required />
+                                <div className='input input-bordered flex items-center justify-between'>
+                                    <input type={viewPass ? 'text' : 'password'}{...register("password", { required: true })}  placeholder="password" className=" " required />
+                                    <p onClick={() => setPassView(!viewPass)} className="">{viewPass ? <FaEyeSlash /> : <FaEye />}</p>
+                                </div>
+                          
                             </div>
 
 

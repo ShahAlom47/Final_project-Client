@@ -2,12 +2,12 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import { useQuery } from '@tanstack/react-query';
+
 import useAxios from '../../../CustomHocks/useAxios';
 import { MdDataSaverOn } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 import useGetCard from '../../../CustomHocks/useGetCard';
 

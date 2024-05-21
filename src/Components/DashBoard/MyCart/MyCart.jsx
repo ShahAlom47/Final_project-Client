@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+
 import useGetCard from "../../../CustomHocks/useGetCard";
 import SectionHeading from "../../SharedComponent/SectionHeading";
 import useAxios from "../../../CustomHocks/useAxios";

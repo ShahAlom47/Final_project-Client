@@ -77,7 +77,7 @@ console.log(data);
           </ul>
          <Link> <button className="w-16 h-12 relative "> 
           <img className="w-full h-full rounded-full" src={cardImg} alt="" />
-            <div className="bg-red-500 rounded-full p-1 min-w-6  min-h-6 absolute bottom-0 text-sm right-1">{user? data?.length :0}</div>
+            <div className="bg-red-500 rounded-full p-1 min-w-6  min-h-6 absolute bottom-0 text-sm right-1">{user? data?.length:0}</div>
           </button></Link>
           {
             user ? <>

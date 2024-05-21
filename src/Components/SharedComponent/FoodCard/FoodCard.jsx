@@ -17,7 +17,7 @@ const FoodCard = ({ datas }) => {
   const axiosSecure = useAxios()
   const navigate =useNavigate()
   const [data,refetch]=useGetCard()
-  console.log(refetch);
+
 
   const handelCard = (cardDatas) => {
 

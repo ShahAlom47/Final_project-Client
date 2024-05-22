@@ -21,6 +21,7 @@ const DashBoard = () => {
                 </div>
                 <div className="space-y-2 ">
                     <NavLink to={'/dashBoard'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaHome></FaHome> ADMIN HOME </button></NavLink>
+                    <NavLink ><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaHome></FaHome> USER HOME </button></NavLink>
                     <NavLink to={'/dashBoard/myCart'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaShoppingCart /> MY CART</button></NavLink>
                     <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><TbToolsKitchen3 /> ADD ITEMS</button></NavLink>
                     <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><TfiMenuAlt /> MANAGE ITEMS</button></NavLink>

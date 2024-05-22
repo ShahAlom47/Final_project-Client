@@ -8,12 +8,13 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import auth from "../../../firebase.config";
+import useAxiosPublic from "../../CustomHocks/useAxiosPublic";
 
 
 const Register = () => {
     const { registerUser, user } = useContext(AuthContext)
     const [viewPass, setPassView] = useState(false)
-    console.log(user)
+    const axiosPublic=useAxiosPublic()
     const {
         register,
         handleSubmit,
@@ -27,10 +28,18 @@ const Register = () => {
             .then(res => {
                 updateProfile(auth.currentUser, {
                     displayName: data.name
+                   
                 }).then((res) => {
-                    console.log(res);
-                    alert('user register success')
-                    reset();
+                    const userInfo = {email:data.email,password:data.password}
+                    axiosPublic.post('/addUser',userInfo)
+                    .then(res=>{
+                        if(res.data.insertedId){
+                            alert('user register success')
+                            reset();
+                        }
+                    })
+
+                    
                 })
                 .catch(e=>console.log(e))
             })

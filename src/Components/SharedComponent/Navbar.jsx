@@ -14,9 +14,6 @@ const Navbar = () => {
 console.log(data);
 
 
-
-
-
   useEffect(() => {
     let prevSPos = window.pageYOffset;
 

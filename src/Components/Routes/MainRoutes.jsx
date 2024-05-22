@@ -14,6 +14,7 @@ import PrivetRoute from "./PrivetRoute";
 import AdminHome from "../DashBoard/AdminHome/AdminHome";
 import AllUsers from "../DashBoard/AllUsers/AllUsers";
 import MyCart from "../DashBoard/MyCart/MyCart";
+import PaymentPage from "../DashBoard/PaymentPage/PaymentPage";
 
   const router = createBrowserRouter([
     {
@@ -68,6 +69,10 @@ import MyCart from "../DashBoard/MyCart/MyCart";
         {
           path: "/dashBoard/myCart",
           element:<MyCart></MyCart>,
+        },
+        {
+          path: "/dashBoard/payment",
+          element:<PaymentPage></PaymentPage>,
         },
       ]
 

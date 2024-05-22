@@ -11,7 +11,6 @@ const Navbar = () => {
   const [visible, setVisible] = useState(true)
   const [data]=useGetCard()
 
-console.log(data);
 
 
   useEffect(() => {
@@ -39,7 +38,7 @@ console.log(data);
       .then(() => {
         alert('logout success')
       }).catch((error) => {
-        console.log(error);
+       
       });
 
 

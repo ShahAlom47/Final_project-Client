@@ -3,9 +3,10 @@
 import { useContext, useState } from 'react';
 import bg from '../../assets/others/authentication.png'
 import img from '../../assets/others/authentication2.png'
-import { FaEye, FaEyeSlash, FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaFacebookF, FaGithub, } from 'react-icons/fa';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import GoogleLogIn from '../SharedComponent/GoogleLogIn/GoogleLogIn';
 
 
 
@@ -113,7 +114,7 @@ const Login = () => {
                             <h1 className='text-center font-semibold'>Or sign in with</h1>
                             <div className='flex gap-5 justify-center my-5 text-3xl'>
                                 <button className=' btn btn-circle rounded-full border-2 p-2 border-black'><FaFacebookF /></button>
-                                <button className=' btn btn-circle rounded-full border-2 p-2 border-black'><FaGoogle /></button>
+                                <GoogleLogIn></GoogleLogIn>
                                 <button className=' btn btn-circle rounded-full border-2 p-2 border-black'><FaGithub /></button>
                             </div>
                         </div>

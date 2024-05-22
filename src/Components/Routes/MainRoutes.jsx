@@ -62,17 +62,20 @@ import PaymentPage from "../DashBoard/PaymentPage/PaymentPage";
           path: "/dashBoard",
           element:<AdminHome></AdminHome>,
         },
-        {
-          path: "/dashBoard/allUsers",
-          element:<AllUsers></AllUsers>,
-        },
+       
         {
           path: "/dashBoard/myCart",
-          element:<MyCart></MyCart>,
+          element:<PrivetRoute><MyCart></MyCart></PrivetRoute>,
         },
         {
           path: "/dashBoard/payment",
           element:<PaymentPage></PaymentPage>,
+        },
+
+// admin routes 
+        {
+          path: "/dashBoard/allUsers",
+          element:<AllUsers></AllUsers>,
         },
       ]
 

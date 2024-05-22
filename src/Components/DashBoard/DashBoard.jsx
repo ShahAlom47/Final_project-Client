@@ -1,12 +1,14 @@
-import { FaBook, FaHome, FaShoppingCart, FaSitemap } from "react-icons/fa";
-import { NavLink, Outlet} from "react-router-dom";
+import { FaBook, FaCalendarAlt, FaCalendarCheck, FaHome, FaShoppingCart, FaSitemap } from "react-icons/fa";
+import { NavLink, Outlet } from "react-router-dom";
 import './DashBoard.css'
 import { TbToolsKitchen3 } from "react-icons/tb";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { PiUsersThreeFill } from "react-icons/pi";
+import { MdOutlinePayment, MdRateReview } from "react-icons/md";
 
 
 const DashBoard = () => {
+    const isAdmin = true;
 
 
 
@@ -20,13 +22,23 @@ const DashBoard = () => {
                     <p className="font-semibold ">RESTAURANT</p>
                 </div>
                 <div className="space-y-2 ">
-                    <NavLink to={'/dashBoard'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaHome></FaHome> ADMIN HOME </button></NavLink>
-                    <NavLink ><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaHome></FaHome> USER HOME </button></NavLink>
-                    <NavLink to={'/dashBoard/myCart'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaShoppingCart /> MY CART</button></NavLink>
-                    <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><TbToolsKitchen3 /> ADD ITEMS</button></NavLink>
-                    <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><TfiMenuAlt /> MANAGE ITEMS</button></NavLink>
-                    <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaBook /> MANAGE BOOKING</button></NavLink>
-                    <NavLink to={'/dashBoard/allUsers'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold  mb-5"><PiUsersThreeFill /> ALL USERS</button></NavLink>
+                    {
+                        isAdmin ? <>
+                            <NavLink to={'/dashBoard'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaHome></FaHome> ADMIN HOME </button></NavLink>
+                            <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><TbToolsKitchen3 /> ADD ITEMS</button></NavLink>
+                            <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><TfiMenuAlt /> MANAGE ITEMS</button></NavLink>
+                            <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaBook /> MANAGE BOOKING</button></NavLink>
+                            <NavLink to={'/dashBoard/allUsers'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold  mb-5"><PiUsersThreeFill /> ALL USERS</button></NavLink>
+                        </> :
+                            <>
+                                <NavLink ><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaHome></FaHome> USER HOME </button></NavLink>
+                                <NavLink to={'/dashBoard/myCart'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaShoppingCart /> MY CART</button></NavLink>
+                                <NavLink ><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaCalendarAlt /> RESERVATION</button></NavLink>
+                                <NavLink ><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><MdOutlinePayment /> PAYMENT HISTORY</button></NavLink>
+                                <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><MdRateReview /> ADD REVIEW</button></NavLink>
+                                <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaCalendarCheck /> MY BOOKING</button></NavLink>
+                            </>
+                    }
                     <hr />
                     <NavLink to={'/'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold  mt-5"><FaHome /> Home</button></NavLink>
                 </div>

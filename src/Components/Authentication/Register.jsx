@@ -25,6 +25,7 @@ const Register = () => {
     } = useForm()
 
     const onSubmit = (data) => {
+  
         // console.log(data);
         registerUser(data.email, data.password)
             .then(() => {
@@ -35,7 +36,7 @@ const Register = () => {
                     const userInfo = {email:data.email,name:data.name}
                     axiosPublic.post('/addUser',userInfo)
                     .then(res=>{
-                        
+                        console.log(res);
                         if(res.data.insertedId){
                             alert('user register success')
                             reset();

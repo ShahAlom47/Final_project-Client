@@ -20,7 +20,6 @@ const AllUsers = () => {
 
     const handelDelete=async(user)=>{
    
-        console.log(auth);
 
         const id= user._id
         axiosSecure.delete(`/user/${id}`)
@@ -43,6 +42,7 @@ const AllUsers = () => {
         .then(res=>{
            if(res.data.modifiedCount){
             alert('user update success')
+            refetch()
            }
         }
         )
@@ -79,7 +79,7 @@ const AllUsers = () => {
                                 <th>{idx+1}</th>
                                 <td>{user?.name}</td>
                                 <td>{user?.email}</td>
-                                <td><button onClick={()=>handelRole(user._id)} className="btn">{user?.role}</button></td>
+                                <td>{user?.role==='admin'?'ADMIN':<button onClick={()=>handelRole(user._id)} className="btn">{user?.role}</button>}</td>
                                 <td><button onClick={()=>handelDelete(user)} className="btn"><MdDeleteForever /></button></td>
                             </tr>)
                             }

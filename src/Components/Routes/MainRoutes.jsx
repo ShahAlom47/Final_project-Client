@@ -55,7 +55,7 @@ import PaymentPage from "../DashBoard/PaymentPage/PaymentPage";
     },
     {
       path: "/dashBoard",
-      element:<DashBoard></DashBoard>,
+      element:<PrivetRoute><DashBoard></DashBoard></PrivetRoute>,
       errorElement: <ErrorPage />,
       children:[
         {

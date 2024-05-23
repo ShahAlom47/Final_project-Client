@@ -5,13 +5,17 @@ import { TbToolsKitchen3 } from "react-icons/tb";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { PiUsersThreeFill } from "react-icons/pi";
 import { MdOutlinePayment, MdRateReview } from "react-icons/md";
+import useAdmin from "../../CustomHocks/useAdmin";
+
 
 
 const DashBoard = () => {
-    const isAdmin = true;
+    // const isAdmin = true;
+  
+const [isAdmin]=useAdmin()
 
 
-
+// console.log(admin);
 
     return (
         <div className="flex">

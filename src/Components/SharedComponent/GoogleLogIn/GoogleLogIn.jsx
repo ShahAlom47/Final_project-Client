@@ -27,6 +27,11 @@ const axiosPublic=useAxiosPublic()
                  
                   navigate('/')
               }
+              else if(res.data.message==='user already exist'){
+                  alert('user register success')
+                 
+                  navigate('/')
+              }
           })
 
        

@@ -39,10 +39,10 @@ const Login = () => {
         const password = form.password.value
         const captcha = form.cap.value
 
-        if (capText !== captcha) {
-            setCapError('Captcha not matched')
-            return
-        }
+        // if (capText !== captcha) {
+        //     setCapError('Captcha not matched')
+        //     // return
+        // }
         logInUser(email, password)
             .then(() => {
                 alert('log In success')

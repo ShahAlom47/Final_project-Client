@@ -1,4 +1,4 @@
-import { FaBook, FaCalendarAlt, FaCalendarCheck, FaHome, FaShoppingCart, FaSitemap } from "react-icons/fa";
+import { FaBook, FaCalendarAlt, FaCalendarCheck, FaHome, FaShoppingCart} from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import './DashBoard.css'
 import { TbToolsKitchen3 } from "react-icons/tb";

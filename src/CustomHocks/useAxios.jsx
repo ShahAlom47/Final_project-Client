@@ -13,8 +13,9 @@ import { useNavigate } from "react-router-dom";
 
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:3000',
-//   baseURL: 'https://assignment-11-jwt-server-flax.vercel.app',
+  // baseURL: 'http://localhost:3000',
+  baseURL:'https://final-project-server-mu.vercel.app',
+
   withCredentials: true,
 });
 

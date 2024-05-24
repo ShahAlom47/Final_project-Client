@@ -13,8 +13,7 @@ const AddItem = () => {
     const {
         register,
         handleSubmit,
-        watch,
-        formState: { errors },
+       
     } = useForm()
 
     const onSubmit = async (data) => {

@@ -18,6 +18,7 @@ import PaymentPage from "../DashBoard/PaymentPage/PaymentPage";
 import AdminRoutes from "./AdminRoutes";
 import AddItem from "../DashBoard/AddItem/AddItem";
 import ManageItem from "../DashBoard/ManageItem/ManageItem";
+import UpdateItem from "../DashBoard/ManageItem/UpdateItem/UpdateItem";
 
   const router = createBrowserRouter([
     {
@@ -87,6 +88,10 @@ import ManageItem from "../DashBoard/ManageItem/ManageItem";
         {
           path: "/dashBoard/manageItem",
           element:<AdminRoutes><ManageItem></ManageItem></AdminRoutes>,
+        },
+        {
+          path: "/dashBoard/updateItem/:id",
+          element:<AdminRoutes><UpdateItem></UpdateItem></AdminRoutes>,
         },
       ]
 

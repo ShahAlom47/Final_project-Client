@@ -4,12 +4,14 @@ import SectionHeading from "../../SharedComponent/SectionHeading";
 import { MdDeleteForever, MdEdit } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxios from "../../../CustomHocks/useAxios";
+import { useNavigate } from "react-router-dom";
 
 
 const ManageItem = () => {
     const axiosPublic = useAxiosPublic()
-    const axiosSecure=useAxios()
-    const { data,refetch } = useQuery({
+    const axiosSecure = useAxios()
+    const navigate = useNavigate()
+    const { data, refetch } = useQuery({
         queryKey: ['manageItem'], queryFn: async () => {
             const loadedData = await axiosPublic.get('/menu')
             return loadedData.data
@@ -28,33 +30,33 @@ const ManageItem = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/menu/delete/${id}`)
-                .then(res=>{
-                    if(res.data.deletedCount>0){
-                        refetch()
-                        Swal.fire({
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",
                                 icon: "success"
-                              });
+                            });
 
-                    }
-                 
-                    
+                        }
 
-                })
 
-              
-            // 
+
+                    })
+
+
+                // 
             }
-          });
+        });
 
 
     }
     const handelEdit = (id) => {
-
+        navigate(`/dashBoard/updateItem/${id}`)
 
     }
 

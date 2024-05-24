@@ -37,7 +37,7 @@ const useAxios = () => {
     axiosSecure.interceptors.response.use(function (response) {
       return response;
     }, function (error) {
-      const status= error.response.status
+      const status= error.response?.status
       console.log(status);
       if(status===401|| status===403){
         logOutUser()

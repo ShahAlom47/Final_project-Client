@@ -15,6 +15,9 @@ import AdminHome from "../DashBoard/AdminHome/AdminHome";
 import AllUsers from "../DashBoard/AllUsers/AllUsers";
 import MyCart from "../DashBoard/MyCart/MyCart";
 import PaymentPage from "../DashBoard/PaymentPage/PaymentPage";
+import AdminRoutes from "./AdminRoutes";
+import AddItem from "../DashBoard/AddItem/AddItem";
+import ManageItem from "../DashBoard/ManageItem/ManageItem";
 
   const router = createBrowserRouter([
     {
@@ -75,7 +78,15 @@ import PaymentPage from "../DashBoard/PaymentPage/PaymentPage";
 // admin routes 
         {
           path: "/dashBoard/allUsers",
-          element:<AllUsers></AllUsers>,
+          element:<AdminRoutes><AllUsers></AllUsers></AdminRoutes>,
+        },
+        {
+          path: "/dashBoard/addItem",
+          element:<AdminRoutes><AddItem></AddItem></AdminRoutes>,
+        },
+        {
+          path: "/dashBoard/manageItem",
+          element:<AdminRoutes><ManageItem></ManageItem></AdminRoutes>,
         },
       ]
 

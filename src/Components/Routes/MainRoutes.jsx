@@ -1,6 +1,6 @@
 import {
-    createBrowserRouter,
-  } from "react-router-dom";
+  createBrowserRouter,
+} from "react-router-dom";
 import Root from "../Root/Root";
 import Home from "../Home/Home";
 import ErrorPage from "../ErrorPage/ErrorPage";
@@ -20,83 +20,85 @@ import AddItem from "../DashBoard/AddItem/AddItem";
 import ManageItem from "../DashBoard/ManageItem/ManageItem";
 import UpdateItem from "../DashBoard/ManageItem/UpdateItem/UpdateItem";
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element:<Root></Root>,
-      errorElement: <ErrorPage />,
-      children:[
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root></Root>,
+    errorElement: <ErrorPage />,
+    children: [
 
-        {
-            path: "/",
-            element:<Home></Home>,
-        },
-        {
-            path: "/our-menu",
-            element:<OurMenuPage></OurMenuPage>,
-        },
-        {
-            path: "/order/:catName",
-            element:<OrderPage></OrderPage>,
-        },
-        {
-            path: "/contact",
-            element:<ContactUs></ContactUs>,
-        },
-        {
-            path: "/signIn",
-            element:<Login></Login>,
-        },
-        {
-            path: "/signUp",
-            element:<Register></Register>,
-        },
-        {
-            path: "/dashBoard",
-            element:<PrivetRoute><DashBoard></DashBoard></PrivetRoute>,
-        },
-      ]
-    },
-    {
-      path: "/dashBoard",
-      element:<PrivetRoute><DashBoard></DashBoard></PrivetRoute>,
-      errorElement: <ErrorPage />,
-      children:[
-        {
-          path: "/dashBoard",
-          element:<AdminHome></AdminHome>,
-        },
-       
-        {
-          path: "/dashBoard/myCart",
-          element:<PrivetRoute><MyCart></MyCart></PrivetRoute>,
-        },
-        {
-          path: "/dashBoard/payment",
-          element:<PaymentPage></PaymentPage>,
-        },
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/our-menu",
+        element: <OurMenuPage></OurMenuPage>,
+      },
+      {
+        path: "/order/:catName",
+        element: <OrderPage></OrderPage>,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/signIn",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signUp",
+        element: <Register></Register>,
+      },
+      {
+        path: "/dashBoard",
+        element: <PrivetRoute><DashBoard></DashBoard></PrivetRoute>,
+      },
+    ]
+  },
+  {
+    path: "/dashBoard",
+    element: <PrivetRoute><DashBoard></DashBoard></PrivetRoute>,
+    errorElement: <ErrorPage />,
+    children: [
 
-// admin routes 
-        {
-          path: "/dashBoard/allUsers",
-          element:<AdminRoutes><AllUsers></AllUsers></AdminRoutes>,
-        },
-        {
-          path: "/dashBoard/addItem",
-          element:<AdminRoutes><AddItem></AddItem></AdminRoutes>,
-        },
-        {
-          path: "/dashBoard/manageItem",
-          element:<AdminRoutes><ManageItem></ManageItem></AdminRoutes>,
-        },
-        {
-          path: "/dashBoard/updateItem/:id",
-          element:<AdminRoutes><UpdateItem></UpdateItem></AdminRoutes>,
-        },
-      ]
 
-    },
-    
-  ]);
+      {
+        path: "/dashBoard/myCart",
+        element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
+      },
+      {
+        path: "/dashBoard/payment",
+        element: <PaymentPage></PaymentPage>,
+      },
 
-  export default router
+      // admin routes 
+
+      {
+        path: "/dashBoard/adminHome",
+        element: <AdminRoutes><AdminHome></AdminHome></AdminRoutes>,
+      },
+      {
+        path: "/dashBoard/allUsers",
+        element: <AdminRoutes><AllUsers></AllUsers></AdminRoutes>,
+      },
+      {
+        path: "/dashBoard/addItem",
+        element: <AdminRoutes><AddItem></AddItem></AdminRoutes>,
+      },
+      {
+        path: "/dashBoard/manageItem",
+        element: <AdminRoutes><ManageItem></ManageItem></AdminRoutes>,
+      },
+      {
+        path: "/dashBoard/updateItem/:id",
+        element: <AdminRoutes><UpdateItem></UpdateItem></AdminRoutes>,
+      },
+    ]
+
+  },
+
+]);
+
+export default router

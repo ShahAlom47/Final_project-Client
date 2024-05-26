@@ -28,7 +28,7 @@ const [isAdmin]=useAdmin()
                 <div className="space-y-2 ">
                     {
                         isAdmin ? <>
-                            <NavLink to={'/dashBoard'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaHome></FaHome> ADMIN HOME </button></NavLink>
+                            <NavLink to={'/dashBoard/adminHome'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaHome></FaHome> ADMIN HOME </button></NavLink>
                             <NavLink to={'/dashBoard/addItem'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><TbToolsKitchen3 /> ADD ITEMS</button></NavLink>
                             <NavLink to={'/dashBoard/manageItem'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><TfiMenuAlt /> MANAGE ITEMS</button></NavLink>
                             <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaBook /> MANAGE BOOKING</button></NavLink>

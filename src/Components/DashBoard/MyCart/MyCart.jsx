@@ -4,23 +4,24 @@ import SectionHeading from "../../SharedComponent/SectionHeading";
 import useAxios from "../../../CustomHocks/useAxios";
 import { useEffect, useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 
 
 const MyCart = () => {
-    const [data,refetch]=useGetCard()
+    const [data,refetch,isPending]=useGetCard()
     const axiosSecure = useAxios()
     const [cartData,setCartData]=useState([])
-   
+    // console.log(data, isPending);
 
     useEffect(()=>{
+     
         const getCartData=async()=>{
 
-            if(data){
+        
 
               try{
                 const loadData=  data.map( (cart)=> axiosSecure.get(`/menu/${cart.cardId}`))
-                // const loadData= data.map(item=> axiosSecure.get(`/menu/${item.cardId}`))
                 const results= await Promise.all(loadData)
                 const mainData= results.map(data=>data.data)
                setCartData(mainData)
@@ -32,28 +33,29 @@ const MyCart = () => {
 
 
 
-            }
+            
         }
-getCartData()
-    },[axiosSecure,data])
+if(!isPending){
+    getCartData()
+}
+    },[axiosSecure,data,isPending])
    
 
 const total = cartData.reduce((sum,item)=>sum+item.price,0)
 
 
 const handelDelete=(id)=>{
-    console.log(id)
     axiosSecure.delete(`/deleteCart/${id}`)
     .then(res=>{
-
-        if(res.data.deletedCount >0){
+        if(res.data.deletedCount>0){
             alert('deleted success')
             refetch()
+            
         }
     })
 
 }
-console.log(cartData);
+// console.log(cartData);
 
 
 
@@ -63,8 +65,14 @@ return (
         <SectionHeading h1={'MANAGE CART'} p={'---How many?---'}></SectionHeading>
         <div className="bg-white m-10 p-6 ">
             <div className="flex justify-between mb-4">
-                <h1 className="text-xl font-bold">Total Cart={data?.length}</h1>
+                <div className=" flex gap-3">
+                <h1 className="text-xl font-bold">Total Cart={cartData?.length}</h1>
                 <h1 className="text-xl font-bold">Total Price={total }</h1>
+                </div>
+               {
+                cartData.length?<Link><button className=" btn btn-accent btn-md">PAY</button></Link>:
+                <button disabled className=" btn btn-accent btn-md">PAY</button>
+               } 
             </div>
             <div>
                 <div className="overflow-x-auto">

@@ -5,17 +5,24 @@ import { AuthContext } from "../Components/AuthProvider/AuthProvider";
 
 
 const useGetCard = () => {
-    const axiosSecure=useAxios()
-    const {user}=useContext(AuthContext)
+    const axiosSecure = useAxios()
+    const { user } = useContext(AuthContext)
 
 
 
-    const {refetch,data} = useQuery({ queryKey: ['card'], queryFn:()=>{
-  
-    return  axiosSecure.get(`/foodCard?email=${user.email}`)
-    } })
+    const { refetch, data, isPending } = useQuery({
+        queryKey: ['card'],
+        queryFn: async() => {
+            const res= await axiosSecure.get(`/foodCard?email=${user.email}`);
+            return res.data;
+        },
+    })
 
-    return[data?.data,refetch]
+    // console.log(data, isPending);
+
+    return [data, refetch, isPending]
+
+
 };
 
 export default useGetCard;

@@ -97,7 +97,7 @@ const ManageItem = () => {
                                         <td><button onClick={() => handelDelete(item._id)} className="btn text-red-600"><MdDeleteForever /></button></td>
                                     </tr>)
                                 }
-                            </> : <h1>Data Not Available</h1>
+                            </> : <tfoot>Data Not Available</tfoot>
                         }
 
                     </tbody>

@@ -70,7 +70,7 @@ return (
                 <h1 className="text-xl font-bold">Total Price={total }</h1>
                 </div>
                {
-                cartData.length?<Link><button className=" btn btn-accent btn-md">PAY</button></Link>:
+                cartData.length?<Link to={`/dashBoard/payment/${total}`}><button className=" btn btn-accent btn-md">PAY</button></Link>:
                 <button disabled className=" btn btn-accent btn-md">PAY</button>
                } 
             </div>

@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
       },
       {
-        path: "/dashBoard/payment",
+        path: "/dashBoard/payment/:total",
         element: <PaymentPage></PaymentPage>,
       },
 

@@ -75,7 +75,8 @@ else{
             date:new Date(),
             cartId: data.map(res=>res.cardId),
             itemId:data.map(res=>res._id),
-            status:'pending'
+            status:'pending',
+            price:totalPrice,
 
         }
 

@@ -19,6 +19,7 @@ import AdminRoutes from "./AdminRoutes";
 import AddItem from "../DashBoard/AddItem/AddItem";
 import ManageItem from "../DashBoard/ManageItem/ManageItem";
 import UpdateItem from "../DashBoard/ManageItem/UpdateItem/UpdateItem";
+import PaymentHistory from "../DashBoard/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: "/dashBoard/myCart",
         element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
+      },
+      {
+        path: "/dashBoard/history",
+        element: <PrivetRoute><PaymentHistory></PaymentHistory></PrivetRoute>,
       },
       {
         path: "/dashBoard/payment/:total",

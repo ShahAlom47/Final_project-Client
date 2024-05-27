@@ -38,7 +38,7 @@ const [isAdmin]=useAdmin()
                                 <NavLink ><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaHome></FaHome> USER HOME </button></NavLink>
                                 <NavLink to={'/dashBoard/myCart'}><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaShoppingCart /> MY CART</button></NavLink>
                                 <NavLink ><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaCalendarAlt /> RESERVATION</button></NavLink>
-                                <NavLink ><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><MdOutlinePayment /> PAYMENT HISTORY</button></NavLink>
+                                <NavLink to={'/dashBoard/history'} ><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><MdOutlinePayment /> PAYMENT HISTORY</button></NavLink>
                                 <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><MdRateReview /> ADD REVIEW</button></NavLink>
                                 <NavLink><button className="flex items-center gap-2 hoverBtn hover:text-white font-semibold "><FaCalendarCheck /> MY BOOKING</button></NavLink>
                             </>

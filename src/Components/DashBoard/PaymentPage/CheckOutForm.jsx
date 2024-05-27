@@ -3,8 +3,11 @@ import { useContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import useAxios from "../../../CustomHocks/useAxios";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import useGetCard from "../../../CustomHocks/useGetCard";
+import useAxiosPublic from "../../../CustomHocks/useAxiosPublic";
 
 const CheckOutForm = ( {total}) => {
+    const [data,refetch]=useGetCard()
     const stripe = useStripe();
     const elements = useElements();
     const [errMsg,setErrMsg]=useState('')
@@ -12,6 +15,7 @@ const CheckOutForm = ( {total}) => {
     const [transactionId,setTransactionId]=useState('')
     const totalPrice=parseFloat(total)
   const axiosSecure=useAxios()
+  const axiosPublic=useAxiosPublic()
 const {user}=useContext(AuthContext)
     useEffect(()=>{
         axiosSecure.post("/create-payment-intent",{price:totalPrice}) 
@@ -64,15 +68,31 @@ if(confirmError){
 else{
     if(paymentIntent.status==='succeeded'){
         setTransactionId(paymentIntent.id)
-        alert('payment success')
+        
+        const paymentData={
+            email:user.email,
+            transactionId:paymentIntent.id,
+            date:new Date(),
+            cartId: data.map(res=>res.cardId),
+            itemId:data.map(res=>res._id),
+            status:'pending'
+
+        }
+
+       const response= await axiosPublic.post('/payment',paymentData)
+       console.log(response.data);
+       if(response.data?.result?.insertedId){
+            refetch()
+           alert('payment success')
+       }
     }
-    console.log(paymentIntent);
+   
 }
 
 
     }
-    
-
+  
+ console.log(data);
     return (
         <div>
             <form onSubmit={handelForm} className=" flex flex-col gap-3" >

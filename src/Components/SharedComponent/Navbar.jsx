@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import cardImg from '../../assets/icon/soppingCard.png'
 import useGetCard from "../../CustomHocks/useGetCard";
+import useAdmin from "../../CustomHocks/useAdmin";
 
 
 const Navbar = () => {
@@ -10,6 +11,7 @@ const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
   const [visible, setVisible] = useState(true)
   const [data]=useGetCard()
+  const [isAdmin]=useAdmin()
 
 
 
@@ -37,7 +39,7 @@ const Navbar = () => {
     logOutUser()
       .then(() => {
         alert('logout success')
-      }).catch((error) => {
+      }).catch(() => {
        
       });
 
@@ -49,7 +51,13 @@ const Navbar = () => {
     <Link><li><a>Home</a></li></Link>
     <Link to={'/our-menu'}><li><a>Our Menu</a></li></Link>
     <Link to={'/order/pizza'}><li><a>Order</a></li></Link>
-    <Link to={'/dashBoard'}><li><a>DashBoard</a></li></Link>
+   {
+    user&& isAdmin&& <Link to={"/dashBoard/adminHome"}><li><a>DashBoard</a></li></Link>
+   
+   }
+   {
+    user&& !isAdmin&& <Link to={'/dashBoard/userHome'}><li><a>DashBoard</a></li></Link>
+   }
     <Link to={'contact'}><li><a>Contact Us</a></li></Link>
 
   </>

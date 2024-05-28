@@ -24,12 +24,10 @@ const axiosPublic=useAxiosPublic()
             console.log(res);
               if(res.data.insertedId){
                   alert('user register success')
-                 
                   navigate('/')
               }
               else if(res.data.message==='user already exist'){
                   alert('user register success')
-                 
                   navigate('/')
               }
           })

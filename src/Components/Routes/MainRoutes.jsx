@@ -20,6 +20,7 @@ import AddItem from "../DashBoard/AddItem/AddItem";
 import ManageItem from "../DashBoard/ManageItem/ManageItem";
 import UpdateItem from "../DashBoard/ManageItem/UpdateItem/UpdateItem";
 import PaymentHistory from "../DashBoard/PaymentHistory/PaymentHistory";
+import UserHome from "../DashBoard/UserHome/UserHome";
 
 const router = createBrowserRouter([
   {
@@ -63,8 +64,12 @@ const router = createBrowserRouter([
     element: <PrivetRoute><DashBoard></DashBoard></PrivetRoute>,
     errorElement: <ErrorPage />,
     children: [
+// user routes
 
-
+      {
+        path: "/dashBoard/userHome",
+        element: <PrivetRoute><UserHome></UserHome></PrivetRoute>,
+      },
       {
         path: "/dashBoard/myCart",
         element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,

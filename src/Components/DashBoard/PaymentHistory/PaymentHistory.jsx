@@ -37,6 +37,7 @@ return (
     <div>
         <SectionHeading h1={'PAYMENT HISTORY'} p={'---At a Glance---'}></SectionHeading>
         <div>
+            <h1 className=" text-3xl font-semibold mb-2">TOTAL PAYMENTS:{data?.length}</h1>
             <table className="table ">
                 {/* head */}
                 <thead className="bg-[#D1A054] rounded-xl " >
@@ -46,6 +47,7 @@ return (
                         <th>Ordered Items</th>
                         <th>Total Price </th>
                         <th>Pay Date</th>
+                        <th>Status</th>
                         
                     </tr>
                 </thead>
@@ -61,6 +63,7 @@ return (
                                     <td>{item?.itemId?.length}</td>
                                     <td>{item?.price}</td>
                                     <td>{formattedDate(item?.date)}</td>
+                                    <td className="bg-yellow-500 text-center rounded-md font-semibold">{item?.status}</td>
                                
                                 </tr>)
                             }

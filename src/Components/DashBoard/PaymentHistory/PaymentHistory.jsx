@@ -13,10 +13,10 @@ const PaymentHistory = () => {
         return response.data;
     }})
 
-console.log(data)
+// console.log(data)
 
 const formattedDate = (dateStr ) => {
-    console.log(dateStr);
+    // console.log(dateStr);
     const date = new Date(dateStr);
     const options = {
         year: 'numeric',

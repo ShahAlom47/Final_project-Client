@@ -11,9 +11,7 @@ const ContactForm = () => {
 
     const handelForm = async (event) => {
         event.preventDefault();
-        console.log('okkkkkk');
-
-
+       
     }
 
 

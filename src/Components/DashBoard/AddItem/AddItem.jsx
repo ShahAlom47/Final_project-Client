@@ -23,7 +23,7 @@ const AddItem = () => {
             headers: { 'Content-Type': 'multipart/form-data'},
                 withCredentials: false 
         })
-     console.log(res.data.data.display_url)
+    //  console.log(res.data.data.display_url)
      if(res.data.success){
 
         const menuItems={

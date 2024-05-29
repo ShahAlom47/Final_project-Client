@@ -17,11 +17,11 @@ const axiosPublic=useAxiosPublic()
     const handelGoogle=()=>{
        googleLogin()
         .then((result) => {
-          console.log(result)
+          // console.log(result)
           const userInfo={email:result.user?.email,name:result.user?.displayName}
           axiosPublic.post('/addUser',userInfo)
           .then(res=>{
-            console.log(res);
+            // console.log(res);
               if(res.data.insertedId){
                   alert('user register success')
                   navigate('/')
@@ -35,7 +35,7 @@ const axiosPublic=useAxiosPublic()
        
           // ...
         }).catch((error) => {
-       console.log(error);
+      //  console.log(error);
           // ...
         });
     }

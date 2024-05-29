@@ -34,10 +34,10 @@ const Login = () => {
         setCapError('')
         e.preventDefault()
         const form = e.target
-        const name = form.name.value
+        // const name = form.name.value
         const email = form.email.value
         const password = form.password.value
-        const captcha = form.cap.value
+        // const captcha = form.cap.value
 
         // if (capText !== captcha) {
         //     setCapError('Captcha not matched')
@@ -51,8 +51,8 @@ const Login = () => {
                     navigate(location?.state)
                 }
                 navigate('/')
-            }).catch((error) => {
-                console.log(error);
+            }).catch(() => {
+                // console.log(error);
             });
 
 

@@ -49,9 +49,9 @@ const CheckOutForm = ({ total }) => {
 
         if (error) {
             setErrMsg(error.message)
-            console.log('[error]', error);
+            // console.log('[error]', error);
         } else {
-            console.log('[PaymentMethod]', paymentMethod);
+            // console.log('[PaymentMethod]', paymentMethod);
         }
 
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret,
@@ -66,7 +66,7 @@ const CheckOutForm = ({ total }) => {
             }
         )
         if (confirmError) {
-            console.log(confirmError);
+            // console.log(confirmError);
         }
         else {
             if (paymentIntent.status === 'succeeded') {
@@ -84,7 +84,7 @@ const CheckOutForm = ({ total }) => {
                 }
 
                 const response = await axiosPublic.post('/payment', paymentData)
-                console.log(response.data);
+                // console.log(response.data);
                 if (response.data?.result?.insertedId) {
                     refetch()
                     alert('payment success')
@@ -97,7 +97,7 @@ const CheckOutForm = ({ total }) => {
 
     }
 
-    console.log(data);
+    // console.log(data);
     return (
         <div>
             <form onSubmit={handelForm} className=" flex flex-col gap-3" >

@@ -36,7 +36,7 @@ const Register = () => {
                     const userInfo = {email:data.email,name:data.name}
                     axiosPublic.post('/addUser',userInfo)
                     .then(res=>{
-                        console.log(res);
+                        // console.log(res);
                         if(res.data.insertedId){
                             alert('user register success')
                             reset();
@@ -46,7 +46,7 @@ const Register = () => {
 
                     
                 })
-                .catch(e=>console.log(e))
+                // .catch(e=>console.log(e))
             })
 
 

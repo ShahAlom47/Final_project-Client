@@ -45,7 +45,7 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, (user) => {
             if(user){
                const userInfo=user.email
-               console.log(userInfo);
+            //    console.log(userInfo);
                 axiosPublic.post('/jwt',{userInfo})
                 .then(res=>{
                   if(res.data.token){
@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
 
             else{
                 localStorage.removeItem('token')
-                console.log(user,'remove');
+                // console.log(user,'remove');
             }
             setUser(user)
             setLoading(false)

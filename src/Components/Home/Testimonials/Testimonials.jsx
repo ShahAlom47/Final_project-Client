@@ -25,7 +25,7 @@ const Testimonials = () => {
         }
     })
 
-    console.log(reviews)
+    // console.log(reviews)
 
 
 

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../../CustomHocks/useAxios";
 import SectionHeading from "../../SharedComponent/SectionHeading";
 import { MdDeleteForever } from "react-icons/md";
-import auth from "../../../../firebase.config";
+// import auth from "../../../../firebase.config";
 
 
 
@@ -37,7 +37,7 @@ const AllUsers = () => {
 
 
     const handelRole=(id)=>{
-        console.log(id);
+        // console.log(id);
         axiosSecure.patch(`/user/admin/${id}`)
         .then(res=>{
            if(res.data.modifiedCount){

@@ -62,7 +62,7 @@ const AdminHome = () => {
         }
     })
 
-    console.log(chartData);
+    // console.log(chartData);
     const pieChartData= chartData?.map((data)=>{
         return {value:data.totalRevenue, name:data.category}
     })
